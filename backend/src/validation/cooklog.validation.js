@@ -1,4 +1,4 @@
-const { z } = require("zod");
+const { z } = require("zod")
 
 const cookLogSchema = z.object({
   recipeId: z.coerce.number().int().positive(),
@@ -6,11 +6,8 @@ const cookLogSchema = z.object({
   cookedAt: z.coerce.date(),
   rating: z.coerce.number().int().min(1).max(5).optional(),
   note: z.string().max(500).optional(),
-});
+})
 
-const cookLogUpdateSchema = cookLogSchema.omit({
-  recipeId: true,
-  userId: true,
-});
+const cookLogUpdateSchema = cookLogSchema.omit({ recipeId: true, userId: true })
 
-module.exports = { cookLogSchema, cookLogUpdateSchema };
+module.exports = { cookLogSchema, cookLogUpdateSchema }

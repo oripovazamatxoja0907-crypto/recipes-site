@@ -1,10 +1,16 @@
+import { useState } from "react";
+
 function RecipeCard({ recipe }) {
+  const [imgError, setImgError] = useState(false);
+  const showImage = recipe.imageUrl && !imgError;
+
   return (
     <div className="bg-white rounded-2xl shadow p-4 flex flex-col gap-3">
-      {recipe.imageUrl ? (
+      {showImage ? (
         <img
           src={recipe.imageUrl}
           alt={recipe.title}
+          onError={() => setImgError(true)}
           className="h-40 w-full object-cover rounded-xl"
         />
       ) : (
