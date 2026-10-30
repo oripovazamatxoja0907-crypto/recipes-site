@@ -5,7 +5,7 @@ function Landing() {
   const { isLoaded, isSignedIn } = useAuth();
 
   if (!isLoaded) return null;
-  if (isSignedIn) return <Navigate to="/recipes" replace />;
+  if (isSignedIn) return <Navigate to="/dashboard" replace />;
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center gap-6 bg-orange-50 px-6 text-center">
@@ -16,12 +16,12 @@ function Landing() {
         pishirganingizni kuzatib boring.
       </p>
       <div className="flex gap-3">
-        <SignInButton mode="modal" forceRedirectUrl="/recipes">
+        <SignInButton mode="modal" forceRedirectUrl="/dashboard">
           <button className="rounded-xl border border-gray-300 bg-white px-6 py-2 font-medium">
             Kirish
           </button>
         </SignInButton>
-        <SignUpButton mode="modal" forceRedirectUrl="/recipes">
+        <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
           <button className="rounded-xl bg-orange-500 px-6 py-2 font-medium text-white">
             Ro'yxatdan o'tish
           </button>

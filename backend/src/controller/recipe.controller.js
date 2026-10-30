@@ -1,7 +1,9 @@
 const prisma = require("../prisma");
 
 const getAll = async (req, res) => {
+  const { userId } = req.query;
   const recipes = await prisma.recipe.findMany({
+    where: userId ? { userId } : undefined,
     orderBy: { createdAt: "desc" },
   });
   res.json(recipes);
